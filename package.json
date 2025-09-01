@@ -1,0 +1,14 @@
+{
+  "name": "shortal-railway",
+  "private": true,
+  "scripts": {
+    "setup": "npm run setup:backend && npm run setup:frontend && npm run build:frontend && npm run copy:frontend",
+    "setup:backend": "cd backend && npm install --include=dev && npx prisma generate",
+    "setup:frontend": "cd frontend && npm install --include=dev",
+    "build:frontend": "cd frontend && npm run build",
+    "copy:frontend": "mkdir -p backend/public && cp -r frontend/dist/* backend/public/",
+    "migrate": "cd backend && npx prisma migrate deploy",
+    "start": "npm run migrate && cd backend && npm run start:prod",
+    "postinstall": "npm run setup:backend && npm run setup:frontend && npm run build:frontend && npm run copy:frontend && npm run migrate"
+  }
+}

@@ -1,0 +1,9 @@
+# Railway configuration for a single service app (backend serves frontend build)
+[build]
+# Railway will run npm install at root
+
+[deploy]
+# Railway will run 'npm start' by default (root package.json)
+
+[variables]
+# Define your envs in the Railway Dashboard for security
